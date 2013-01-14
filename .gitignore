@@ -1,3 +1,16 @@
 *.xcuserstate
+<<<<<<< HEAD
 *.xcuserdata
 *.DS_Store
+=======
+
+Pig Boxes/.DS_Store
+
+*.xcworkspacedata
+
+*.xcbkptlist
+
+Pig Boxes/Pig Boxes.xcodeproj/xcuserdata/joemiller.xcuserdatad/xcschemes/xcschememanagement.plist
+
+*.xcscheme
+>>>>>>> Added pigs xcode project with cocos2D and box2D.
