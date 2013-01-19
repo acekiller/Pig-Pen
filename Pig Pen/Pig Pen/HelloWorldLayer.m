@@ -68,49 +68,11 @@
 	return self;
 }
 #pragma mark Game methods
-- (void) addPig {
-    CCSprite * pig = [CCSprite spriteWithFile:@"pig.png"];
-    
-    // Tag pig and add to array of monsters
-    pig.tag =1;
-    [_pigs addObject:pig];
-    
-    // Pen constraint (whole screen)
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    
-    // Determine where to spawn the pig along the Y axis
-    int minY = pig.contentSize.height / 2;
-    int maxY = winSize.height - pig.contentSize.height/2;
-    int rangeY = maxY - minY;
-    int randomY = (arc4random() % rangeY) + minY;
-    // Determine where to spawn the pig along the X axis
-    int minX = pig.contentSize.width / 2;
-    int maxX = winSize.width - pig.contentSize.width/2;
-    int rangeX = maxX - minX;
-    int randomX = (arc4random() % rangeX) + minX;
-
-    // Create the pig at the position
-    pig.position = ccp(randomX, randomY);
-    [self addChild:pig];
-    
-    // Determine speed of the pig
-    int minDuration = 2.0;
-    int maxDuration = 4.0;
-    int rangeDuration = maxDuration - minDuration;
-    int randomDuration = (arc4random() % rangeDuration) + minDuration;
-    
-    // Create the actions
-    CCMoveTo * actionMove = [CCMoveTo actionWithDuration:randomDuration
-                                                position:ccp(randomX, randomY)];
-    [pig runAction:actionMove];
-}
 
 -(void)addPigs:(int)pigs2add
 {
     for (int i = 1; i <= pigs2add; i++)
     {
-        //NSLog(@"pig %d", i);
-        //[self addPig];
         NSString * pigName = [[NSString alloc] initWithFormat:@"Pig%i", i];
         Pig * pig = [[Pig alloc] initWithName:pigName];
         NSLog(@"%@", pig.name);
@@ -135,16 +97,6 @@
     int maxX = winSize.width - pig.contentSize.width/2;
     int rangeX = maxX - minX;
     int randomX = (arc4random() % rangeX) + minX;
-    
-    // Determine speed of the pig
-    int minDuration = 2.0;
-    int maxDuration = 4.0;
-    int rangeDuration = maxDuration - minDuration;
-    int randomDuration = (arc4random() % rangeDuration) + minDuration;
-    
-    // Angle
-    CGFloat dx = 0, dy = 0;
-    CGFloat rads = atan2(dy, dx);
     
     // Create the actions
     CCMoveTo * actionMove = [CCMoveTo actionWithDuration:1
@@ -176,17 +128,4 @@
 	[super dealloc];
 }
 
-#pragma mark GameKit delegate
-
--(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
-}
-
--(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
-}
 @end
