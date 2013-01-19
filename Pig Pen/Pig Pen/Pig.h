@@ -9,9 +9,14 @@
 #import "CCSprite.h"
 
 @interface Pig : CCSprite
+{
+    BOOL _alive;
+}
 
 @property (retain, nonatomic) NSString * name;
 
 - (id)initWithName:(NSString *)name;
+- (BOOL)isAlive;
+- (void)killPig;
 
 @end

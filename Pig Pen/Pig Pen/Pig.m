@@ -16,7 +16,18 @@
 {
     self = [super initWithFile:@"pig.png"];
     self.name = name;
+    _alive = TRUE;
     return self;
+}
+
+- (BOOL)isAlive
+{
+    return _alive;
+}
+
+- (void)killPig
+{
+    _alive = FALSE;
 }
 
 @end

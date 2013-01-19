@@ -106,8 +106,10 @@
 
 -(void)movePigs
 {
-    for (CCSprite *pig in _pigs) {
-        [self movePig:pig];
+    for (Pig *pig in _pigs) {
+        if ([pig isAlive]) {
+            [self movePig:pig];
+        }
     }
 }
 
