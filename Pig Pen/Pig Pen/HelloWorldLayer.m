@@ -13,6 +13,9 @@
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 
+// Import custom classes
+#import "Pig.h"
+
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -53,16 +56,13 @@
 		// add the label as a child to this Layer
 		[self addChild: label];
 		
-        // Initialize arrays
+        // Initialize array to hold pigs
         _pigs = [[NSMutableArray alloc] init];
         
-        // put a sprite on the screen
-        CCSprite *pig = [CCSprite spriteWithFile:@"pig.png"];
-        pig.position = ccp(pig.contentSize.width/2, size.height/2);
-        [self addChild:pig];
-        [_pigs addObject:pig];
+        // Put pigs on screen
         [self addPigs:20];
-        // schedule game logic every second and update as often as possible
+        
+        // Schedule game logic every second and update as often as possible
         [self schedule:@selector(gameLogic:) interval:1.0];
 	}
 	return self;
@@ -109,15 +109,19 @@
 {
     for (int i = 1; i <= pigs2add; i++)
     {
-        NSLog(@"pig %d", i);
-        [self addPig];
+        //NSLog(@"pig %d", i);
+        //[self addPig];
+        NSString * pigName = [[NSString alloc] initWithFormat:@"Pig%i", i];
+        Pig * pig = [[Pig alloc] initWithName:pigName];
+        NSLog(@"%@", pig.name);
+        [self addChild:pig];
+        [_pigs addObject:pig];
     }
 
 }
 
 -(void)movePig:(CCSprite *)pig
 {
-    NSLog(@"Move pig");
     // Pen constraint (whole screen)
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
@@ -150,16 +154,14 @@
 
 -(void)movePigs
 {
-    NSLog(@"Move pigs");
     for (CCSprite *pig in _pigs) {
         [self movePig:pig];
-        NSLog(@"pig moved");
     }
 }
 
+// Game Loop
 -(void)gameLogic:(ccTime)dt
 {
-    NSLog(@"Game Loop");
     [self movePigs];
 }
 
