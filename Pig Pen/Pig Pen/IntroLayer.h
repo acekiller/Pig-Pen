@@ -2,7 +2,7 @@
 //  IntroLayer.h
 //  Pig Pen
 //
-//  Created by Joseph Miller on 1/5/13.
+//  Created by Joseph Miller on 1/20/13.
 //  Copyright __MyCompanyName__ 2013. All rights reserved.
 //
 
