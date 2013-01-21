@@ -15,6 +15,7 @@
 
 // Import custom classes
 #import "Pig.h"
+#import "Pen.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -55,68 +56,19 @@
 		
 		// add the label as a child to this Layer
 		[self addChild: label];
-		
-        // Initialize array to hold pigs
-        _pigs = [[NSMutableArray alloc] init];
         
-        // Put pigs on screen
-        [self addPigs:20];
+        // Add pens
+        Pen * pen1 = [[Pen alloc] init];
+        [pen1 setPenWidth:size.width/2 andHeight:size.height/2];
         
-        // Schedule game logic every second and update as often as possible
-        [self schedule:@selector(gameLogic:) interval:1.0];
+        //Pen * pen2 = [[Pen alloc] init];
+        //[pen1 setPenWidth:size.width/2 andHeight:size.height/2];
+        // move pen?
+        
+        
+        [self addChild:pen1];
 	}
 	return self;
-}
-#pragma mark Game methods
-
--(void)addPigs:(int)pigs2add
-{
-    for (int i = 1; i <= pigs2add; i++)
-    {
-        NSString * pigName = [[NSString alloc] initWithFormat:@"Pig%i", i];
-        Pig * pig = [[Pig alloc] initWithName:pigName];
-        NSLog(@"%@", pig.name);
-        [self addChild:pig];
-        [_pigs addObject:pig];
-    }
-
-}
-
--(void)movePig:(CCSprite *)pig
-{
-    // Pen constraint (whole screen)
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    
-    // Determine where to spawn the pig along the Y axis
-    int minY = pig.contentSize.height / 2;
-    int maxY = winSize.height - pig.contentSize.height/2;
-    int rangeY = maxY - minY;
-    int randomY = (arc4random() % rangeY) + minY;
-    // Determine where to spawn the pig along the X axis
-    int minX = pig.contentSize.width / 2;
-    int maxX = winSize.width - pig.contentSize.width/2;
-    int rangeX = maxX - minX;
-    int randomX = (arc4random() % rangeX) + minX;
-    
-    // Create the actions
-    CCMoveTo * actionMove = [CCMoveTo actionWithDuration:1
-                                                position:ccp(randomX, randomY)];
-    [pig runAction:actionMove];
-}
-
--(void)movePigs
-{
-    for (Pig *pig in _pigs) {
-        if ([pig isAlive]) {
-            [self movePig:pig];
-        }
-    }
-}
-
-// Game Loop
--(void)gameLogic:(ccTime)dt
-{
-    [self movePigs];
 }
 
 // on "dealloc" you need to release all your retained objects

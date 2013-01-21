@@ -133,6 +133,7 @@
 		BBDA3DB416AC9A1C00C4EEED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDA3DB316AC9A1C00C4EEED /* main.m */; };
 		BBDA3DB716AC9A1C00C4EEED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDA3DB616AC9A1C00C4EEED /* AppDelegate.m */; };
 		BBDA3DBD16AC9A1C00C4EEED /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDA3DBC16AC9A1C00C4EEED /* IntroLayer.m */; };
+		BBE7BBD916ACB73100256183 /* Pen.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE7BBD816ACB73100256183 /* Pen.m */; };
 		BBF7FFA816AC9A630082B6EB /* pig-72.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF7FFA416AC9A630082B6EB /* pig-72.png */; };
 		BBF7FFA916AC9A630082B6EB /* pig-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF7FFA516AC9A630082B6EB /* pig-72@2x.png */; };
 		BBF7FFAA16AC9A630082B6EB /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF7FFA616AC9A630082B6EB /* pig.png */; };
@@ -403,6 +404,8 @@
 		BBDA3DB616AC9A1C00C4EEED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BBDA3DBB16AC9A1C00C4EEED /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		BBDA3DBC16AC9A1C00C4EEED /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		BBE7BBD716ACB73100256183 /* Pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pen.h; sourceTree = "<group>"; };
+		BBE7BBD816ACB73100256183 /* Pen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pen.m; sourceTree = "<group>"; };
 		BBF7FFA416AC9A630082B6EB /* pig-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-72.png"; sourceTree = "<group>"; };
 		BBF7FFA516AC9A630082B6EB /* pig-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-72@2x.png"; sourceTree = "<group>"; };
 		BBF7FFA616AC9A630082B6EB /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pig.png; sourceTree = "<group>"; };
@@ -471,6 +474,8 @@
 			children = (
 				BBF7FFB016AC9AA70082B6EB /* HelloWorldLayer.h */,
 				BBF7FFB116AC9AA70082B6EB /* HelloWorldLayer.m */,
+				BBE7BBD716ACB73100256183 /* Pen.h */,
+				BBE7BBD816ACB73100256183 /* Pen.m */,
 				BBF7FFAD16AC9A7D0082B6EB /* Pig.h */,
 				BBF7FFAE16AC9A7D0082B6EB /* Pig.m */,
 				BBDA3DB516AC9A1C00C4EEED /* AppDelegate.h */,
@@ -1035,6 +1040,7 @@
 				BBDA3DBD16AC9A1C00C4EEED /* IntroLayer.m in Sources */,
 				BBF7FFAF16AC9A7D0082B6EB /* Pig.m in Sources */,
 				BBF7FFB216AC9AA70082B6EB /* HelloWorldLayer.m in Sources */,
+				BBE7BBD916ACB73100256183 /* Pen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
