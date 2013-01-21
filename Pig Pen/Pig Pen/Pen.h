@@ -11,9 +11,10 @@
 @interface Pen : CCLayer
 {
     NSMutableArray * _pigs;
-    CGSize penSize;
+    CGRect penRect;
 }
 
-- (void)setPenWidth:(CGFloat)width andHeight:(CGFloat)height;
+-(id)initWithRect:(CGRect)rect;
+-(void)setPenRect:(CGRect)rect;
 
 @end

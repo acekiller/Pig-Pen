@@ -46,7 +46,7 @@
 	if( (self=[super init]) ) {
 		
 		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Pig Pen" fontName:@"Marker Felt" fontSize:24];
+		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Pig Pens" fontName:@"Marker Felt" fontSize:24];
 
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
@@ -58,15 +58,17 @@
 		[self addChild: label];
         
         // Add pens
-        Pen * pen1 = [[Pen alloc] init];
-        [pen1 setPenWidth:size.width/2 andHeight:size.height/2];
-        
-        //Pen * pen2 = [[Pen alloc] init];
-        //[pen1 setPenWidth:size.width/2 andHeight:size.height/2];
-        // move pen?
-        
-        
+        CGRect pen1rect = CGRectMake(0, 0, size.width/2, size.height/2);
+        //Pen * pen1 = [[Pen alloc] init];
+        Pen * pen1 = [[Pen alloc] initWithRect:pen1rect];
+        [pen1 setPenRect:pen1rect];
         [self addChild:pen1];
+        
+        CGRect pen2rect = CGRectMake(size.width/2, 0, size.width/2, size.height/2);
+        //Pen * pen2 = [[Pen alloc] init];
+        Pen * pen2 = [[Pen alloc] initWithRect:pen2rect];
+        [pen2 setPenRect:pen2rect];
+        [self addChild:pen2];
 	}
 	return self;
 }
