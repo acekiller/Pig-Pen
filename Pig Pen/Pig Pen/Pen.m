@@ -11,8 +11,13 @@
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 
+// Imprt math for determining angle
+#import "math.h"
 // Import custom pig class
 #import "Pig.h"
+
+#define k_animation_interval 3.0
+#define k_number_of_pigs 1
 
 @implementation Pen
 
@@ -36,10 +41,10 @@
         _pigs = [[NSMutableArray alloc] init];
         
         // Put pigs on screen
-        [self addPigs:9];
+        [self addPigs:k_number_of_pigs];
         
         // Schedule game logic every second and update as often as possible
-        [self schedule:@selector(updatePigs:) interval:1.0];
+        [self schedule:@selector(updatePigs:) interval:k_animation_interval];
 
 	}
 	return self;
@@ -66,6 +71,9 @@
 
 -(void)movePig:(CCSprite *)pig
 {
+    // Animation times
+    float turnTime = k_animation_interval * 0.2;
+    float moveTime = k_animation_interval * 0.8;
     // Pen constraint is penSize    
     // Determine where to spawn the pig along the Y axis
     int minY = pig.contentSize.height / 2;
@@ -77,11 +85,21 @@
     int maxX = penSize.width - pig.contentSize.width/2;
     int rangeX = maxX - minX;
     int randomX = (arc4random() % rangeX) + minX;
+    //Find the angle
+    float pigAngle = atan2f((randomY - pig.position.y), (randomX - pig.position.x));
+    CCLOG(@"radians %f", pigAngle);
+    // Convert from radians to degrees
+    pigAngle *= (180/M_PI);
+    CCLOG(@"degrees %f", pigAngle);
     
-    // Create the actions
-    CCMoveTo * actionMove = [CCMoveTo actionWithDuration:1
-                                                position:ccp(randomX, randomY)];
-    [pig runAction:actionMove];
+    // Create the action to move the pig
+    CCMoveTo * actionMove = [CCMoveTo actionWithDuration:moveTime position:ccp(randomX, randomY)];
+    
+    // Create action to rotate pig
+    CCRotateTo * actionRotate = [CCRotateTo actionWithDuration:turnTime angle:pigAngle];
+    
+    // Run action sequence
+    [pig runAction: [CCSequence actions:actionRotate, actionMove, nil]];
 }
 
 -(void)movePigs
