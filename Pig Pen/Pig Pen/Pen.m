@@ -38,13 +38,6 @@
     if( (self=[self init]) ) {
 		// Set the size of the pen
         [self setPenRect:rect];
-        
-        // Pen Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Pen" fontName:@"Marker Felt" fontSize:12];
-        float labelX = (penRect.size.width /2) + penRect.origin.x;
-        float labelY = (penRect.size.height + penRect.origin.y);
-		label.position =  ccp(labelX , labelY);
-        [self addChild: label];
 
         // Put pigs in the pen
         [self addPigs:k_number_of_pigs];
@@ -58,6 +51,23 @@
 -(void)setPenRect:(CGRect)rect
 {
     penRect = rect;
+    [self drawPen];
+}
+
+-(void)drawPen
+{
+    float fenceThickness = 5.0;
+    float width = penRect.size.width - (fenceThickness * 2);
+    float height = penRect.size.height - (fenceThickness * 2);
+    ccColor4B penColor = ccc4(200, 155, 100, 255);
+    ccColor4B fenceColor = ccc4(100, 50, 0, 255);
+    //CCLayerColor * penColorLayer = [[CCLayerColor alloc] initWithColor:penColor];
+    CCLayerColor * fenceColorLayer = [[CCLayerColor alloc] initWithColor:fenceColor width:penRect.size.width  height:penRect.size.height];
+    [fenceColorLayer setPosition:(CGPointMake(penRect.origin.x, penRect.origin.y))];
+    CCLayerColor * penColorLayer = [[CCLayerColor alloc] initWithColor:penColor width:width height:height];
+    [penColorLayer setPosition:(CGPointMake(penRect.origin.x + fenceThickness, penRect.origin.y + fenceThickness))];
+    [self addChild:fenceColorLayer];
+    [self addChild:penColorLayer];
 }
 
 -(void)addPigs:(int)pigs2add

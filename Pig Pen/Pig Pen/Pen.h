@@ -16,5 +16,6 @@
 
 -(id)initWithRect:(CGRect)rect;
 -(void)setPenRect:(CGRect)rect;
+-(void)addPigs:(int)pigs2add;
 
 @end
