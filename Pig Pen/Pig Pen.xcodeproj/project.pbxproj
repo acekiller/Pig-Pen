@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB5DE52916AE8CDA00F5F7B2 /* pig-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DE52616AE8CDA00F5F7B2 /* pig-hd.png */; };
+		BB5DE52A16AE8CDA00F5F7B2 /* pig-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DE52716AE8CDA00F5F7B2 /* pig-ipad.png */; };
+		BB5DE52B16AE8CDA00F5F7B2 /* pig-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DE52816AE8CDA00F5F7B2 /* pig-ipadhd.png */; };
 		BBA859F216AC9B5400493370 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BBA859F116AC9B5400493370 /* Default-568h@2x.png */; };
 		BBDA3C2C16AC9A1A00C4EEED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBDA3C2B16AC9A1A00C4EEED /* QuartzCore.framework */; };
 		BBDA3C2E16AC9A1A00C4EEED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBDA3C2D16AC9A1A00C4EEED /* OpenGLES.framework */; };
@@ -134,15 +137,15 @@
 		BBDA3DB716AC9A1C00C4EEED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDA3DB616AC9A1C00C4EEED /* AppDelegate.m */; };
 		BBDA3DBD16AC9A1C00C4EEED /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDA3DBC16AC9A1C00C4EEED /* IntroLayer.m */; };
 		BBE7BBD916ACB73100256183 /* Pen.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE7BBD816ACB73100256183 /* Pen.m */; };
-		BBF7FFA816AC9A630082B6EB /* pig-72.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF7FFA416AC9A630082B6EB /* pig-72.png */; };
-		BBF7FFA916AC9A630082B6EB /* pig-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF7FFA516AC9A630082B6EB /* pig-72@2x.png */; };
 		BBF7FFAA16AC9A630082B6EB /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF7FFA616AC9A630082B6EB /* pig.png */; };
-		BBF7FFAB16AC9A630082B6EB /* pig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF7FFA716AC9A630082B6EB /* pig@2x.png */; };
 		BBF7FFAF16AC9A7D0082B6EB /* Pig.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF7FFAE16AC9A7D0082B6EB /* Pig.m */; };
 		BBF7FFB216AC9AA70082B6EB /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF7FFB116AC9AA70082B6EB /* HelloWorldLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB5DE52616AE8CDA00F5F7B2 /* pig-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-hd.png"; sourceTree = "<group>"; };
+		BB5DE52716AE8CDA00F5F7B2 /* pig-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-ipad.png"; sourceTree = "<group>"; };
+		BB5DE52816AE8CDA00F5F7B2 /* pig-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-ipadhd.png"; sourceTree = "<group>"; };
 		BBA859F116AC9B5400493370 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BBDA3C2716AC9A1A00C4EEED /* Pig Pen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pig Pen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDA3C2B16AC9A1A00C4EEED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -406,10 +409,7 @@
 		BBDA3DBC16AC9A1C00C4EEED /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		BBE7BBD716ACB73100256183 /* Pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pen.h; sourceTree = "<group>"; };
 		BBE7BBD816ACB73100256183 /* Pen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pen.m; sourceTree = "<group>"; };
-		BBF7FFA416AC9A630082B6EB /* pig-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-72.png"; sourceTree = "<group>"; };
-		BBF7FFA516AC9A630082B6EB /* pig-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-72@2x.png"; sourceTree = "<group>"; };
 		BBF7FFA616AC9A630082B6EB /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pig.png; sourceTree = "<group>"; };
-		BBF7FFA716AC9A630082B6EB /* pig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig@2x.png"; sourceTree = "<group>"; };
 		BBF7FFAD16AC9A7D0082B6EB /* Pig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pig.h; sourceTree = "<group>"; };
 		BBF7FFAE16AC9A7D0082B6EB /* Pig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pig.m; sourceTree = "<group>"; };
 		BBF7FFB016AC9AA70082B6EB /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
@@ -492,11 +492,11 @@
 		BBDA3C3E16AC9A1A00C4EEED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BB5DE52616AE8CDA00F5F7B2 /* pig-hd.png */,
+				BB5DE52716AE8CDA00F5F7B2 /* pig-ipad.png */,
+				BB5DE52816AE8CDA00F5F7B2 /* pig-ipadhd.png */,
 				BBA859F116AC9B5400493370 /* Default-568h@2x.png */,
-				BBF7FFA416AC9A630082B6EB /* pig-72.png */,
-				BBF7FFA516AC9A630082B6EB /* pig-72@2x.png */,
 				BBF7FFA616AC9A630082B6EB /* pig.png */,
-				BBF7FFA716AC9A630082B6EB /* pig@2x.png */,
 				BBDA3C3F16AC9A1A00C4EEED /* Default.png */,
 				BBDA3C4116AC9A1A00C4EEED /* Default-Landscape~ipad.png */,
 				BBDA3C4316AC9A1A00C4EEED /* fps_images.png */,
@@ -920,11 +920,11 @@
 				BBDA3C5416AC9A1A00C4EEED /* Icon@2x.png in Resources */,
 				BBDA3C5716AC9A1A00C4EEED /* iTunesArtwork in Resources */,
 				BBDA3D9516AC9A1B00C4EEED /* ChangeLog in Resources */,
-				BBF7FFA816AC9A630082B6EB /* pig-72.png in Resources */,
-				BBF7FFA916AC9A630082B6EB /* pig-72@2x.png in Resources */,
 				BBF7FFAA16AC9A630082B6EB /* pig.png in Resources */,
-				BBF7FFAB16AC9A630082B6EB /* pig@2x.png in Resources */,
 				BBA859F216AC9B5400493370 /* Default-568h@2x.png in Resources */,
+				BB5DE52916AE8CDA00F5F7B2 /* pig-hd.png in Resources */,
+				BB5DE52A16AE8CDA00F5F7B2 /* pig-ipad.png in Resources */,
+				BB5DE52B16AE8CDA00F5F7B2 /* pig-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
