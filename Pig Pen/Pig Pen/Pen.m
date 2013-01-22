@@ -51,6 +51,8 @@
 -(void)setPenRect:(CGRect)rect
 {
     penRect = rect;
+    self.contentSize = rect.size;
+    [self setPosition:(CGPointMake(rect.origin.x, rect.origin.y))];
     [self drawPen];
 }
 
@@ -61,11 +63,11 @@
     float height = penRect.size.height - (fenceThickness * 2);
     ccColor4B penColor = ccc4(200, 155, 100, 255);
     ccColor4B fenceColor = ccc4(100, 50, 0, 255);
-    //CCLayerColor * penColorLayer = [[CCLayerColor alloc] initWithColor:penColor];
+    
     CCLayerColor * fenceColorLayer = [[CCLayerColor alloc] initWithColor:fenceColor width:penRect.size.width  height:penRect.size.height];
-    [fenceColorLayer setPosition:(CGPointMake(penRect.origin.x, penRect.origin.y))];
     CCLayerColor * penColorLayer = [[CCLayerColor alloc] initWithColor:penColor width:width height:height];
-    [penColorLayer setPosition:(CGPointMake(penRect.origin.x + fenceThickness, penRect.origin.y + fenceThickness))];
+    [penColorLayer setPosition:(CGPointMake(fenceThickness, fenceThickness))];
+    
     [self addChild:fenceColorLayer];
     [self addChild:penColorLayer];
 }
@@ -77,8 +79,8 @@
         NSString * pigName = [[NSString alloc] initWithFormat:@"Pig%i", i];
         Pig * pig = [[Pig alloc] initWithName:pigName];
         NSLog(@"%@", pig.name);
-        float centerX = penRect.origin.x + (penRect.size.width / 2);
-        float centerY = penRect.origin.y + (penRect.size.width / 2);
+        float centerX = (penRect.size.width / 2);
+        float centerY = (penRect.size.height / 2);
         CGPoint centerPoint = CGPointMake(centerX, centerY);
         [pig setPosition:centerPoint];
         NSLog(@"x%f y%f", centerPoint.x, centerPoint.y);
@@ -95,27 +97,26 @@
     float moveTime = k_animation_interval * 0.8;
     // Pen constraint is penSize    
     // Determine where to spawn the pig along the Y axis
-    int minY = (pig.contentSize.height / 2) + penRect.origin.y;
-    int maxY = (penRect.size.height + penRect.origin.y) - pig.contentSize.height/2;
+    int minY = (pig.contentSize.height / 2);
+    int maxY = (self.boundingBox.size.height) - pig.contentSize.height/2;
     int rangeY = maxY - minY;
     int randomY = (arc4random() % rangeY) + minY;
     // Determine where to spawn the pig along the X axis
-    int minX = (pig.contentSize.width / 2) + penRect.origin.x;
-    int maxX = (penRect.size.width + penRect.origin.x) - pig.contentSize.width/2;
+    int minX = (pig.contentSize.width / 2);
+    int maxX = (self.boundingBox.size.width) - pig.contentSize.width/2;
     int rangeX = maxX - minX;
     int randomX = (arc4random() % rangeX) + minX;
+    // Create the action to move the pig
+    CCMoveTo * actionMove = [CCMoveTo actionWithDuration:moveTime position:ccp(randomX, randomY)];
+    
     //Find the angle
     float pigAngle = atan2f((randomY - pig.position.y), (randomX - pig.position.x));
     CCLOG(@"radians %f", pigAngle);
     // Convert from radians to degrees
     pigAngle *= (180/M_PI);
     CCLOG(@"degrees %f", pigAngle);
-    
-    // Create the action to move the pig
-    CCMoveTo * actionMove = [CCMoveTo actionWithDuration:moveTime position:ccp(randomX, randomY)];
-    
     // Create action to rotate pig (rotate to or rotate by?)
-    CCRotateTo * actionRotate = [CCRotateTo actionWithDuration:turnTime angle:pigAngle];
+    CCRotateTo * actionRotate = [CCRotateBy actionWithDuration:turnTime angle:pigAngle];
     
     // Run action sequence
     [pig runAction: [CCSequence actions:actionRotate, actionMove, nil]];
