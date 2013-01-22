@@ -40,7 +40,7 @@
         [self setPenRect:rect];
 
         // Put pigs in the pen
-        [self addPigs:k_number_of_pigs];
+        //[self addPigs:k_number_of_pigs];
         
         // Schedule pig animation
         [self schedule:@selector(updatePigs:) interval:k_animation_interval];

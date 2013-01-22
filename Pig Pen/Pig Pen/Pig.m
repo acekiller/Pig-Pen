@@ -20,14 +20,15 @@
     self = [super initWithFile:@"pig.png"];
     _alive = TRUE;
     _penRect = penRect;
+    self.rotation = 90; // Start pigs facing down
     return self;
 }
 
 - (void)wander:(float)dt
 {
     // Animation times
-    float turnTime = dt * 0.2;
-    float moveTime = dt * 0.8;
+    float turnTime = dt * 0.1;
+    float moveTime = dt * 0.9;
     // Determine Pen constraint
     int minY = (self.boundingBox.size.height / 2);
     int maxY = (_penRect.size.height) - self.boundingBox.size.height/2;
@@ -42,13 +43,16 @@
     CCMoveTo * actionMove = [CCMoveTo actionWithDuration:moveTime position:ccp(randomX, randomY)];
     
     //Find the angle
-    float pigAngle = atan2f((randomY - self.position.y), (randomX - self.position.x));
+    float x = (randomX - self.position.x);
+    float y = -(randomY - self.position.y); // y axis is in opposite direction in cocos2D
+    float pigAngle = atan2f( y, x );
+    CCLOG(@"y %f, x %f", y, x);
     CCLOG(@"radians %f", pigAngle);
     // Convert from radians to degrees
     pigAngle *= (180/M_PI);
     CCLOG(@"degrees %f", pigAngle);
     // Create action to rotate pig (rotate to or rotate by?)
-    CCRotateTo * actionRotate = [CCRotateBy actionWithDuration:turnTime angle:pigAngle];
+    CCRotateTo * actionRotate = [CCRotateTo actionWithDuration:turnTime angle:pigAngle];
     
     // Run action sequence
     [self runAction: [CCSequence actions:actionRotate, actionMove, nil]];

@@ -63,18 +63,24 @@
         CGRect pen3rect = CGRectMake(size.width/2, 0, size.width/4, size.height);
         CGRect pen4rect = CGRectMake(size.width*3/4, 0, size.width/4, size.height);
         
-        [self addPenWithRect:pen1rect];
-        [self addPenWithRect:pen2rect];
-        [self addPenWithRect:pen3rect];
-        [self addPenWithRect:pen4rect];
+        Pen * pen1 = [self addPenWithRect:pen1rect];
+        Pen * pen2 = [self addPenWithRect:pen2rect];
+        Pen * pen3 = [self addPenWithRect:pen3rect];
+        Pen * pen4 = [self addPenWithRect:pen4rect];
+        
+        [pen1 addPigs:7];
+        [pen2 addPigs:5];
+        [pen3 addPigs:3];
+        [pen4 addPigs:9];
 	}
 	return self;
 }
 
--(void)addPenWithRect:(CGRect)rect
+-(Pen *)addPenWithRect:(CGRect)rect
 { 
     Pen * pen = [[Pen alloc] initWithRect:rect];
     [self addChild:pen];
+    return pen;
 }
 
 // on "dealloc" you need to release all your retained objects
