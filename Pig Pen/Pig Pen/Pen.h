@@ -11,10 +11,10 @@
 @interface Pen : CCLayer
 {
     NSMutableArray * _pigs;
-    CGRect penRect;
 }
 
 -(id)initWithRect:(CGRect)rect;
+
 -(void)setPenRect:(CGRect)rect;
 -(void)addPigs:(int)pigs2add;
 

@@ -15,28 +15,43 @@
 
 @synthesize name = _name;
 
-- (id)initWithName:(NSString *)name
+- (id)initWithPenRect:(CGRect)penRect
 {
     self = [super initWithFile:@"pig.png"];
-    self.name = name;
     _alive = TRUE;
+    _penRect = penRect;
     return self;
 }
 
-
--(void)movePig:(float)dt
+- (void)wander:(float)dt
 {
     // Animation times
     float turnTime = dt * 0.2;
     float moveTime = dt * 0.8;
     // Determine Pen constraint
-    // Determine where to spawn the pig along the Y axis
+    int minY = (self.boundingBox.size.height / 2);
+    int maxY = (_penRect.size.height) - self.boundingBox.size.height/2;
+    int rangeY = maxY - minY;
+    int randomY = (arc4random() % rangeY) + minY;
     // Determine where to spawn the pig along the X axis
-    //Find the angle
-    // Convert from radians to degrees    
+    int minX = (self.boundingBox.size.width / 2);
+    int maxX = (_penRect.size.width) - self.boundingBox.size.width/2;
+    int rangeX = maxX - minX;
+    int randomX = (arc4random() % rangeX) + minX;
     // Create the action to move the pig
+    CCMoveTo * actionMove = [CCMoveTo actionWithDuration:moveTime position:ccp(randomX, randomY)];
+    
+    //Find the angle
+    float pigAngle = atan2f((randomY - self.position.y), (randomX - self.position.x));
+    CCLOG(@"radians %f", pigAngle);
+    // Convert from radians to degrees
+    pigAngle *= (180/M_PI);
+    CCLOG(@"degrees %f", pigAngle);
     // Create action to rotate pig (rotate to or rotate by?)
+    CCRotateTo * actionRotate = [CCRotateBy actionWithDuration:turnTime angle:pigAngle];
+    
     // Run action sequence
+    [self runAction: [CCSequence actions:actionRotate, actionMove, nil]];
 }
 
 - (BOOL)isAlive
