@@ -139,6 +139,7 @@
 		BBDA3DBD16AC9A1C00C4EEED /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDA3DBC16AC9A1C00C4EEED /* IntroLayer.m */; };
 		BBDF34C416B255FE00993C41 /* pig-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDF34C316B255FE00993C41 /* pig-icon.png */; };
 		BBDF34C916B256C600993C41 /* pig-icon-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDF34C816B256C600993C41 /* pig-icon-hd.png */; };
+		BBDF34D116B2637800993C41 /* pig-icon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDF34D016B2637800993C41 /* pig-icon-ipad.png */; };
 		BBE7BBD916ACB73100256183 /* Pen.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE7BBD816ACB73100256183 /* Pen.m */; };
 		BBF7FFAA16AC9A630082B6EB /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF7FFA616AC9A630082B6EB /* pig.png */; };
 		BBF7FFAF16AC9A7D0082B6EB /* Pig.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF7FFAE16AC9A7D0082B6EB /* Pig.m */; };
@@ -414,6 +415,7 @@
 		BBDA3DBC16AC9A1C00C4EEED /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		BBDF34C316B255FE00993C41 /* pig-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pig-icon.png"; path = "../pig-icon.png"; sourceTree = "<group>"; };
 		BBDF34C816B256C600993C41 /* pig-icon-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pig-icon-hd.png"; path = "../pig-icon-hd.png"; sourceTree = "<group>"; };
+		BBDF34D016B2637800993C41 /* pig-icon-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-icon-ipad.png"; sourceTree = "<group>"; };
 		BBE7BBD716ACB73100256183 /* Pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pen.h; sourceTree = "<group>"; };
 		BBE7BBD816ACB73100256183 /* Pen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pen.m; sourceTree = "<group>"; };
 		BBF7FFA616AC9A630082B6EB /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pig.png; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 		BBDA3C3E16AC9A1A00C4EEED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BBDF34D016B2637800993C41 /* pig-icon-ipad.png */,
 				BBDF34C816B256C600993C41 /* pig-icon-hd.png */,
 				BBDF34C316B255FE00993C41 /* pig-icon.png */,
 				BB5DE52616AE8CDA00F5F7B2 /* pig-hd.png */,
@@ -938,6 +941,7 @@
 				BB5DE52B16AE8CDA00F5F7B2 /* pig-ipadhd.png in Resources */,
 				BBDF34C416B255FE00993C41 /* pig-icon.png in Resources */,
 				BBDF34C916B256C600993C41 /* pig-icon-hd.png in Resources */,
+				BBDF34D116B2637800993C41 /* pig-icon-ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

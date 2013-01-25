@@ -14,7 +14,7 @@
 	<array>
 		<string>pig-icon.png</string>
 		<string>pig-icon-hd.png</string>
-		<string>Icon-72.png</string>
+		<string>pig-icon-ipad.png</string>
 		<string>Icon-Small-50.png</string>
 		<string>Icon-Small.png</string>
 		<string>Icon-Small@2x.png</string>
@@ -27,7 +27,7 @@
 			<array>
 				<string>pig-icon.png</string>
 				<string>pig-icon-hd.png</string>
-				<string>Icon-72.png</string>
+				<string>pig-icon-ipad.png</string>
 				<string>Icon-Small-50.png</string>
 				<string>Icon-Small.png</string>
 				<string>Icon-Small@2x.png</string>
