@@ -10,6 +10,7 @@
 		BB5DE52916AE8CDA00F5F7B2 /* pig-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DE52616AE8CDA00F5F7B2 /* pig-hd.png */; };
 		BB5DE52A16AE8CDA00F5F7B2 /* pig-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DE52716AE8CDA00F5F7B2 /* pig-ipad.png */; };
 		BB5DE52B16AE8CDA00F5F7B2 /* pig-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5DE52816AE8CDA00F5F7B2 /* pig-ipadhd.png */; };
+		BB76F2B616B23A0500D12482 /* PensLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BB76F2B516B23A0500D12482 /* PensLayer.m */; };
 		BBA859F216AC9B5400493370 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BBA859F116AC9B5400493370 /* Default-568h@2x.png */; };
 		BBDA3C2C16AC9A1A00C4EEED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBDA3C2B16AC9A1A00C4EEED /* QuartzCore.framework */; };
 		BBDA3C2E16AC9A1A00C4EEED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBDA3C2D16AC9A1A00C4EEED /* OpenGLES.framework */; };
@@ -146,6 +147,8 @@
 		BB5DE52616AE8CDA00F5F7B2 /* pig-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-hd.png"; sourceTree = "<group>"; };
 		BB5DE52716AE8CDA00F5F7B2 /* pig-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-ipad.png"; sourceTree = "<group>"; };
 		BB5DE52816AE8CDA00F5F7B2 /* pig-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-ipadhd.png"; sourceTree = "<group>"; };
+		BB76F2B416B23A0500D12482 /* PensLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PensLayer.h; sourceTree = "<group>"; };
+		BB76F2B516B23A0500D12482 /* PensLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PensLayer.m; sourceTree = "<group>"; };
 		BBA859F116AC9B5400493370 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BBDA3C2716AC9A1A00C4EEED /* Pig Pen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pig Pen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDA3C2B16AC9A1A00C4EEED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -474,6 +477,8 @@
 			children = (
 				BBF7FFB016AC9AA70082B6EB /* HelloWorldLayer.h */,
 				BBF7FFB116AC9AA70082B6EB /* HelloWorldLayer.m */,
+				BB76F2B416B23A0500D12482 /* PensLayer.h */,
+				BB76F2B516B23A0500D12482 /* PensLayer.m */,
 				BBE7BBD716ACB73100256183 /* Pen.h */,
 				BBE7BBD816ACB73100256183 /* Pen.m */,
 				BBF7FFAD16AC9A7D0082B6EB /* Pig.h */,
@@ -1041,6 +1046,7 @@
 				BBF7FFAF16AC9A7D0082B6EB /* Pig.m in Sources */,
 				BBF7FFB216AC9AA70082B6EB /* HelloWorldLayer.m in Sources */,
 				BBE7BBD916ACB73100256183 /* Pen.m in Sources */,
+				BB76F2B616B23A0500D12482 /* PensLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

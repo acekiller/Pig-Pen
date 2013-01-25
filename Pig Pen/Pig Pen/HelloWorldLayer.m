@@ -14,8 +14,7 @@
 #import "AppDelegate.h"
 
 // Import custom classes
-#import "Pig.h"
-#import "Pen.h"
+#import "PensLayer.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -57,30 +56,24 @@
 		// add the label as a child to this Layer
 		[self addChild: label];
         
-        // Add pens
-        CGRect pen1rect = CGRectMake(0, 0, size.width/4, size.height);
-        CGRect pen2rect = CGRectMake(size.width/4, 0, size.width/4, size.height);
-        CGRect pen3rect = CGRectMake(size.width/2, 0, size.width/4, size.height);
-        CGRect pen4rect = CGRectMake(size.width*3/4, 0, size.width/4, size.height);
-        
-        Pen * pen1 = [self addPenWithRect:pen1rect];
-        Pen * pen2 = [self addPenWithRect:pen2rect];
-        Pen * pen3 = [self addPenWithRect:pen3rect];
-        Pen * pen4 = [self addPenWithRect:pen4rect];
-        
-        [pen1 addPigs:7];
-        [pen2 addPigs:5];
-        [pen3 addPigs:3];
-        [pen4 addPigs:9];
+        // Add menu
+        CCMenuItem *startButton = [CCMenuItemFont itemWithString:@"start" block:^(id sender) {
+            [[CCDirector sharedDirector] replaceScene:[PensLayer node]];
+        }
+                                   ];
+        CCMenu *menu = [CCMenu menuWithItems:startButton, nil];
+		
+		[menu alignItemsHorizontallyWithPadding:20];
+		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+		
+		// Add the menu to the layer
+		[self addChild:menu];
 	}
 	return self;
 }
 
--(Pen *)addPenWithRect:(CGRect)rect
-{ 
-    Pen * pen = [[Pen alloc] initWithRect:rect];
-    [self addChild:pen];
-    return pen;
+-(void) start: (id) sender {
+    
 }
 
 // on "dealloc" you need to release all your retained objects
