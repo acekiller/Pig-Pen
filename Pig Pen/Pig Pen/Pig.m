@@ -8,8 +8,7 @@
 
 #import "Pig.h"
 
-// Needed to obtain the Navigation Controller
-#import "AppDelegate.h"
+#define k_wander_time 3.0
 
 @implementation Pig
 
@@ -26,8 +25,9 @@
     return self;
 }
 
-- (void)wander:(float)dt
+- (void)wander
 {
+    float dt = k_wander_time;
     // Animation times
     float turnTime = dt * 0.1;
     float moveTime = dt * 0.9;
@@ -56,10 +56,17 @@
     // Create action to rotate pig (rotate to or rotate by?)
     CCRotateTo * actionRotate = [CCRotateTo actionWithDuration:turnTime angle:pigAngle];
     
+    // CCCAllFUn
+    CCCallFuncN * repeat = [CCCallFuncN actionWithTarget:self selector:@selector(completedMove:)];
+    
     // Run action sequence
-    [self runAction: [CCSequence actions:actionRotate, actionMove, nil]];
+    [self runAction: [CCSequence actions:actionRotate, actionMove, repeat, nil]];
 }
 
+- (void)completedMove:(id) sender
+{
+    [self wander];
+}
 
 - (void)killPig
 {

@@ -87,14 +87,14 @@
         [self addChild:pig];
         [_pigs addObject:pig];
     }
-    
+    [self movePigs];
 }
 
 -(void)movePigs
 {
     for (Pig *pig in _pigs) {
         if ([pig isAlive]) {
-            [pig wander:k_animation_interval];
+            [pig wander];
         }
     }
 }
@@ -102,7 +102,6 @@
 // Move pig Loop
 -(void)updatePigs:(ccTime)dt
 {
-    [self movePigs];
 }
 
 @end

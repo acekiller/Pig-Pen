@@ -6,7 +6,8 @@
 //
 //
 
-#import "CCSprite.h"
+//#import "CCSprite.h"
+#import "cocos2d.h"
 
 @interface Pig : CCSprite
 
@@ -16,7 +17,7 @@
 
 - (id)initWithPenRect:(CGRect)penRect;
 
-- (void)wander:(float)dt;
+- (void)wander;
 - (void)killPig;
 
 @end
