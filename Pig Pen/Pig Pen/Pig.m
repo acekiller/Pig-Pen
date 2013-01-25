@@ -55,7 +55,8 @@
     pigAngle *= (180/M_PI);
     //  Determine rotation speed
     float amountRotated = pigAngle - self.rotation;
-    float turnTime = abs(amountRotated) / self.speed;
+    float rotationSpeed = self.speed * 4;
+    float turnTime = abs(amountRotated) / rotationSpeed;
     
     // Create action to rotate pig (rotate to or rotate by?)
     CCRotateTo * actionRotate = [CCRotateTo actionWithDuration:turnTime angle:pigAngle];
