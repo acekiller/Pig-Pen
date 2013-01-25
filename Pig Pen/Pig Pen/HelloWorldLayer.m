@@ -57,14 +57,16 @@
 		[self addChild: label];
         
         // Add menu
-        CCMenuItem *startButton = [CCMenuItemFont itemWithString:@"start" block:^(id sender) {
-            [[CCDirector sharedDirector] replaceScene:[PensLayer node]];
-        }
+        CCMenuItem *startButton = [
+                                   CCMenuItemFont itemWithString:@"start"
+                                   block:^(id sender) {
+                                       [[CCDirector sharedDirector] replaceScene:[PensLayer node]];
+                                   }
                                    ];
         CCMenu *menu = [CCMenu menuWithItems:startButton, nil];
 		
 		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+		[menu setPosition:ccp( size.width/2, size.height/2)];
 		
 		// Add the menu to the layer
 		[self addChild:menu];

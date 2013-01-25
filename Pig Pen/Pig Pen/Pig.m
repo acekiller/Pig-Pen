@@ -48,15 +48,12 @@
     float x = (randomX - self.position.x);
     float y = -(randomY - self.position.y); // y axis is in opposite direction in cocos2D
     float pigAngle = atan2f( y, x );
-    CCLOG(@"y %f, x %f", y, x);
-    CCLOG(@"radians %f", pigAngle);
     // Convert from radians to degrees
     pigAngle *= (180/M_PI);
-    CCLOG(@"degrees %f", pigAngle);
     // Create action to rotate pig (rotate to or rotate by?)
     CCRotateTo * actionRotate = [CCRotateTo actionWithDuration:turnTime angle:pigAngle];
     
-    // CCCAllFUn
+    // create action to call function again
     CCCallFuncN * repeat = [CCCallFuncN actionWithTarget:self selector:@selector(completedMove:)];
     
     // Run action sequence
