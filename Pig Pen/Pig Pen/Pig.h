@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString * name;
 @property (nonatomic) BOOL isAlive;
 @property (nonatomic) CGRect penRect;
+@property (nonatomic) float speed;
 
 - (id)initWithPenRect:(CGRect)penRect;
 

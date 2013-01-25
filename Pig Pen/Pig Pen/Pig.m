@@ -9,12 +9,14 @@
 #import "Pig.h"
 
 #define k_wander_time 3.0
+#define fps 60
 
 @implementation Pig
 
 @synthesize name = _name;
 @synthesize isAlive = _isAlive;
 @synthesize penRect = _penRect;
+@synthesize speed = _speed;
 
 - (id)initWithPenRect:(CGRect)penRect
 {
@@ -22,25 +24,26 @@
     self.isAlive = TRUE;
     self.penRect = penRect;
     self.rotation = 90; // Start pigs facing down
+    self.speed = 1 * fps;
     return self;
 }
 
 - (void)wander
 {
-    float dt = k_wander_time;
-    // Animation times
-    float turnTime = dt * 0.1;
-    float moveTime = dt * 0.9;
-    // Determine Pen constraint
+    //float dt = k_wander_time;
+    // Determine where to spawn the pig within the pen rect
     int minY = (self.boundingBox.size.height / 2);
     int maxY = (self.penRect.size.height) - self.boundingBox.size.height/2;
     int rangeY = maxY - minY;
     int randomY = (arc4random() % rangeY) + minY;
-    // Determine where to spawn the pig along the X axis
     int minX = (self.boundingBox.size.width / 2);
     int maxX = (self.penRect.size.width) - self.boundingBox.size.width/2;
     int rangeX = maxX - minX;
     int randomX = (arc4random() % rangeX) + minX;
+    // Determine movement speed
+    float dt = ccpDistance(self.boundingBox.origin, ccp(randomX, randomY)) / self.speed;
+    // Animation times
+    float moveTime = dt;
     // Create the action to move the pig
     CCMoveTo * actionMove = [CCMoveTo actionWithDuration:moveTime position:ccp(randomX, randomY)];
     
@@ -50,6 +53,10 @@
     float pigAngle = atan2f( y, x );
     // Convert from radians to degrees
     pigAngle *= (180/M_PI);
+    //  Determine rotation speed
+    float amountRotated = pigAngle - self.rotation;
+    float turnTime = abs(amountRotated) / self.speed;
+    
     // Create action to rotate pig (rotate to or rotate by?)
     CCRotateTo * actionRotate = [CCRotateTo actionWithDuration:turnTime angle:pigAngle];
     
