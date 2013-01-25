@@ -14,12 +14,14 @@
 @implementation Pig
 
 @synthesize name = _name;
+@synthesize isAlive = _isAlive;
+@synthesize penRect = _penRect;
 
 - (id)initWithPenRect:(CGRect)penRect
 {
     self = [super initWithFile:@"pig.png"];
-    _alive = TRUE;
-    _penRect = penRect;
+    self.isAlive = TRUE;
+    self.penRect = penRect;
     self.rotation = 90; // Start pigs facing down
     return self;
 }
@@ -31,12 +33,12 @@
     float moveTime = dt * 0.9;
     // Determine Pen constraint
     int minY = (self.boundingBox.size.height / 2);
-    int maxY = (_penRect.size.height) - self.boundingBox.size.height/2;
+    int maxY = (self.penRect.size.height) - self.boundingBox.size.height/2;
     int rangeY = maxY - minY;
     int randomY = (arc4random() % rangeY) + minY;
     // Determine where to spawn the pig along the X axis
     int minX = (self.boundingBox.size.width / 2);
-    int maxX = (_penRect.size.width) - self.boundingBox.size.width/2;
+    int maxX = (self.penRect.size.width) - self.boundingBox.size.width/2;
     int rangeX = maxX - minX;
     int randomX = (arc4random() % rangeX) + minX;
     // Create the action to move the pig
@@ -58,14 +60,10 @@
     [self runAction: [CCSequence actions:actionRotate, actionMove, nil]];
 }
 
-- (BOOL)isAlive
-{
-    return _alive;
-}
 
 - (void)killPig
 {
-    _alive = FALSE;
+    self.isAlive = FALSE;
 }
 
 @end

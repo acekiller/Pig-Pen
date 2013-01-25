@@ -9,17 +9,14 @@
 #import "CCSprite.h"
 
 @interface Pig : CCSprite
-{
-    BOOL _alive;
-    CGRect _penRect;
-}
 
-@property (retain, nonatomic) NSString * name;
+@property (strong, nonatomic) NSString * name;
+@property (nonatomic) BOOL isAlive;
+@property (nonatomic) CGRect penRect;
 
 - (id)initWithPenRect:(CGRect)penRect;
 
 - (void)wander:(float)dt;
-- (BOOL)isAlive;
 - (void)killPig;
 
 @end
